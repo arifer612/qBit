@@ -4,3 +4,7 @@
 /.idea
 __pycache__/
 *.pyc
+
+# Build remnants
+/build
+*.egg-info
