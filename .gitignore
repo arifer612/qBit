@@ -1,0 +1,6 @@
+/venv
+
+# IDE remnants
+/.idea
+__pycache__/
+*.pyc
