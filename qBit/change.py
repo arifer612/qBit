@@ -8,7 +8,7 @@ import bencode
 from . import config
 from os.path import exists, splitext
 from os import path
-from .directories import backup_dir
+from . import directories
 from typing import Dict, Union
 
 
@@ -29,7 +29,7 @@ def _map_change(file: str, mapping: Dict[Union[str, int], Union[str, int]], *key
     if not keys:
         raise AssertionError("Keys are required.")
 
-    file = path.join(backup_dir, splitext(file) + '.fastresume')
+    file = path.join(directories.backup_dir, splitext(file) + '.fastresume')
     if not exists(file):
         raise FileNotFoundError('The file does not exist.')
 

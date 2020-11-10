@@ -1,6 +1,10 @@
+"""
+Creates the Config object to read and parse the qBittorrent configuration file.
+"""
+
 import sys
 
-from PyQt5.QtCore import QSettings
+from PyQt5.QtCore import QSettings  # type: ignore
 from .directories import config_dir, OS
 from os.path import join
 
@@ -9,7 +13,7 @@ class Config(object):
     """
     The configuration of the machine's qBittorrent with a human-readable data structure
     """
-    def __init__(self, os='Linux'):
+    def __init__(self, os: str):
         if os == 'linux':
             config_file = 'qBittorrent.conf'
         elif os == 'Windows':
@@ -19,7 +23,7 @@ class Config(object):
         else:
             sys.exit(1)
         self.settings = QSettings(join(config_dir, config_file), QSettings.IniFormat)
-        self._data = {}
+        self._data = {}  # type: dict
         self._goDeep(self._data)
 
     def _goDeep(self, conf: dict) -> dict:
@@ -36,11 +40,8 @@ class Config(object):
         return conf
 
     @property
-    def data(self):
+    def data(self) -> dict:
         return self._data
 
-
 config = Config(OS)
-
-
 

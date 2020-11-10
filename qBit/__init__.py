@@ -12,6 +12,5 @@ Current requirements:
     python >= 3.5
 """
 
-from . import directories
-from .config import config
-from .library import *
+from .Library import *
+from .change import change_path, change_category
