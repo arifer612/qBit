@@ -1,0 +1,23 @@
+#+title: qBit workflow
+#+description: 
+This package provides a human-readable way to manage torrents on qBittorrent. The convenience of qBittorrent comes largely from its feature to automatically manage torrents using categories. It should be highly recommended to enable this feature to make full use of this package. Users will be able to mass migrate torrents from one operating system to another, write scripts to move files and have
+it reflect in the client, and many more.
+
+#+author: arifer612
+#+date: <2020-11-09 Mon>
+
+* Purpose
+To create a script that will help the migration of qBittorrent from one OS to the other. It should also be able to create a human-readable backup of all the torrents managed by the client.
+
+* Method
+`bencode` will be used to read any files used by the qBittorrent client. Files such as the file management settings in its configuration file to each torrent's metadata and savepath.
+
+* Progress
+
+** Initial structure of the project
+<2020-11-09 Mon>
+A large overview of how the project was created. The `Config` object to parse the information of any (machine-readable) file read by the qBittorrent client into one that is, for the most part, human-readable.
+
+** Typing hints and package organisation
+<2020-11-11 Wed>
+Checked to ensure the validity of the abstract source code through mypy.
