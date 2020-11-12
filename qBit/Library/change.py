@@ -5,12 +5,13 @@ A library of API to manage the torrents
 
 import bencode
 
-from . import config
 from os.path import exists, splitext
 from os import path
-from . import directories
+from .directories import backup_dir
 from typing import Dict, Union
 
+
+# TODO: use Torrents object instead of manually having to search file after file.
 
 def _map_change(file: str, mapping: Dict[Union[str, int], Union[str, int]], *keys) -> None:
     """
@@ -29,7 +30,7 @@ def _map_change(file: str, mapping: Dict[Union[str, int], Union[str, int]], *key
     if not keys:
         raise AssertionError("Keys are required.")
 
-    file = path.join(directories.backup_dir, splitext(file) + '.fastresume')
+    file = path.join(backup_dir, splitext(file) + '.fastresume')
     if not exists(file):
         raise FileNotFoundError('The file does not exist.')
 
